@@ -1,0 +1,4 @@
+/* Add this to your main CSS file for the hover effect on the custom dropdown */
+.dropdownItem:hover {
+  background-color: #000000;
+}
