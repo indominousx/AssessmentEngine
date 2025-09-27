@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Assessment, FinalReport, SubmissionPayload, UserDemographics, AvailableAssessment } from '../types/assessment';
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:8000/assessment',
+  baseURL: 'http://localhost:8069/assessment',
 });
 
 export const listAssessments = async (): Promise<AvailableAssessment[]> => {

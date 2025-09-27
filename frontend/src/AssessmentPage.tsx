@@ -80,37 +80,14 @@ export const AssessmentPage = () => {
     switch (step) {
       case 'selection':
         return (
-          <div style={{
-            minHeight: '100vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'linear-gradient(135deg, #e0f7fa 0%, #f0f4f7 100%)',
-            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-          }}>
-            <div style={{
-              background: '#fff',
-              borderRadius: '18px',
-              boxShadow: '0 8px 32px rgba(0, 87, 134, 0.12)',
-              padding: '48px 36px',
-              maxWidth: '480px',
-              width: '100%',
-              textAlign: 'center',
-              margin: '24px',
-            }}>
-              <h1 style={{
-                fontWeight: 700,
-                fontSize: '2.2rem',
-                marginBottom: '0.5rem',
-                color: '#005786',
-                letterSpacing: '-1px',
-              }}>Mental Wellness Check-in</h1>
-              <p style={{
-                color: '#5a7a8b',
-                fontSize: '1.1rem',
-                marginBottom: '2.5rem',
-              }}>
-                Please select which area you'd like to check in on today.
+          <div className="assessment-container animate-fade-in">
+            <div className="assessment-card">
+              <h1 className="assessment-title">Mental Wellness Check-in</h1>
+              <p className="assessment-subtitle font-caveat" style={{fontSize: '1.5rem', color: 'var(--brand-pink)'}}>
+                Your Safe Space
+              </p>
+              <p className="assessment-subtitle">
+                Please select which area you'd like to check in on today. Your responses are completely private and secure.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 {availableAssessments.length > 0 ? (
@@ -118,28 +95,14 @@ export const AssessmentPage = () => {
                     <button
                       key={item.id}
                       onClick={() => handleSelectAssessment(item)}
-                      style={{
-                        padding: '20px',
-                        fontSize: '1.15rem',
-                        background: 'linear-gradient(90deg, #e0f7fa 0%, #b2ebf2 100%)',
-                        border: 'none',
-                        borderRadius: '12px',
-                        boxShadow: '0 2px 8px rgba(0, 87, 134, 0.07)',
-                        color: '#005786',
-                        fontWeight: 600,
-                        cursor: 'pointer',
-                        transition: 'background 0.2s, box-shadow 0.2s, transform 0.1s',
-                        outline: 'none',
-                      }}
-                      onMouseOver={e => (e.currentTarget.style.background = 'linear-gradient(90deg, #b2ebf2 0%, #e0f7fa 100%)')}
-                      onMouseOut={e => (e.currentTarget.style.background = 'linear-gradient(90deg, #e0f7fa 0%, #b2ebf2 100%)')}
-                      onFocus={e => (e.currentTarget.style.boxShadow = '0 0 0 3px #b2ebf2')}
-                      onBlur={e => (e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 87, 134, 0.07)')}
+                      className="assessment-button"
                     >
                       {item.name}
                     </button>
                   ))
-                ) : <p>Loading available assessments...</p>}
+                ) : (
+                  <div className="loading-spinner"></div>
+                )}
               </div>
             </div>
           </div>
